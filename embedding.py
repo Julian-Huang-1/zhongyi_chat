@@ -8,7 +8,7 @@ import openai
 
 # Provide OpenAI API key and choose one of the available models:
 # https://beta.openai.com/docs/models/overview
-openai.api_key = "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"
+openai.api_key = "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"
 embedding_model = "text-embedding-ada-002"
 
 with open("test.txt","r",encoding='utf-8')as f:
