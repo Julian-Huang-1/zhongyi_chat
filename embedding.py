@@ -8,7 +8,7 @@ import openai
 
 # Provide OpenAI API key and choose one of the available models:
 # https://beta.openai.com/docs/models/overview
-openai.api_key = "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"
+openai.api_key = "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"
 embedding_model = "text-embedding-ada-002"
 
 with open("test.txt","r",encoding='utf-8')as f:
@@ -24,15 +24,15 @@ for s in data:
     vectors.append(response["data"][0]["embedding"])
 
 from qdrant_client import QdrantClient
-client = QdrantClient(":memory:")
-client = QdrantClient(path="path/to/db")  # Persists changes to disk
+client = QdrantClient(host="localhost", port=6333)
+# client = QdrantClient(":memory:")
+# client = QdrantClient(path="path/to/db")  # Persists changes to disk
 from qdrant_client.models import Distance, VectorParams
 client.recreate_collection(
     collection_name="zhongyi_collection",
     vectors_config=VectorParams(size=1536, distance=Distance.COSINE),
 )
 
-pass
 from qdrant_client.models import PointStruct
 client.upsert(
     collection_name="zhongyi_collection",
