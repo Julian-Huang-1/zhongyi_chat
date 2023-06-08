@@ -1,0 +1,20 @@
+<script>
+    function sendMessage() {
+    var userInput = document.getElementById("userInput");
+    var message = userInput.value;
+
+    if (message.trim() !== "") {
+        var chatbox = document.querySelector(".chatbox");
+        var userMessage = document.createElement("div");
+        userMessage.className = "message flex items-center justify-end mb-2";
+        userMessage.innerHTML = `   <img src="./images/icons8-user-64.png" alt="User" class="avatar mr-2">
+          <div class="bg-blue-500 text-white rounded-lg py-2 px-4">${message}</div>
+        `;
+
+        chatbox.appendChild(userMessage);
+        userInput.value = "";
+
+    }
+}
+
+</script>

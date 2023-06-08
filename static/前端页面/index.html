@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>有问必有答</title>
+    <link rel="shortcut icon" href="./images/icons8-chat-64.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/index.css">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-8">
+        <div class="header">
+            <img src="./images/icons8-chat-64.png" alt="Logo" class="mx-auto mb-4">
+            <h1 class="text-3xl mb-2">Welcome to Chatbot</h1>
+            <p class="text-gray-600">Ask me anything!</p>
+        </div>
+
+        <div class="chatbox h-64 overflow-y-scroll border border-gray-300 p-4 mb-4">
+            <!-- 初始聊天消息 -->
+            <div class="message flex items-center justify-end mb-2">
+                <img src="./images/icons8-system-64.png" alt="System" class="avatar mr-2">
+                <div class="bg-green-600 text-white rounded-lg py-2 px-4">请把你的问题描述地越详细越好</div>
+            </div>
+        </div>
+        <div class="user-input">
+            <input type="text" id="userInput" placeholder="Type your message here" class="flex-grow">
+            <button onclick="sendMessage()">Send</button>
+            <button onclick="initChat()" class="add-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="./JS/index.js">
+    </script>
+</body>
+
+</html>
