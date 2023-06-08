@@ -9,7 +9,7 @@ from typing import List
 import openai
 from qdrant_client import QdrantClient
 
-openai.api_key = "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"
+openai.api_key = "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"
 content = [{'role': 'system', 'content': '你是一擅长做阅读理解的助手'}]
 user_content = []
 
