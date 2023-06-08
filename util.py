@@ -8,6 +8,11 @@ from pprint import pprint
 from typing import List
 import openai
 from qdrant_client import QdrantClient
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_random_exponential,
+)
 
 openai.api_key = "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"
 content = [{'role': 'system', 'content': '你是一擅长做阅读理解的助手'}]
@@ -18,6 +23,7 @@ def embedding(input:str):
     response = openai.Embedding.create(input=input,model="text-embedding-ada-002")
     return response["data"][0]["embedding"]
 
+@retry(wait=wait_random_exponential(min=1, max=5), stop=stop_after_attempt(4))
 def LLM(prompt:List[dict]):
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo",messages=prompt,temperature=0)
     return response["choices"][0]["message"]
