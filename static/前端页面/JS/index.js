@@ -7,8 +7,9 @@ function sendMessage() {
         var chatbox = document.querySelector(".chatbox");
         var userMessage = document.createElement("div");
         userMessage.className = "message flex items-center justify-end mb-2";
-        userMessage.innerHTML = `   <img src="./images/icons8-user-64.png" alt="User" class="avatar mr-2">
+        userMessage.innerHTML = `   
   <div class="bg-green-400 text-white rounded-lg py-2 px-4">${message}</div>
+  <img src="./images/icons8-user-64.png" alt="User" class="avatar mr-2">
 `;
 
         chatbox.appendChild(userMessage);
@@ -67,7 +68,7 @@ function initChat() {
 
                 // 添加初始聊天消息
                 var initialMessage = document.createElement("div");
-                initialMessage.className = "message flex items-center justify-end mb-2";
+                initialMessage.className = "message flex items-center justify-start mb-2";
                 initialMessage.innerHTML = `
     <img src="./images/icons8-system-64.png" alt="System" class="avatar mr-2">
         <div class="bg-green-600 text-white rounded-lg py-2 px-4">请把你的问题描述地越详细越好</div>
