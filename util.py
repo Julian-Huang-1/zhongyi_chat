@@ -14,7 +14,7 @@ from tenacity import (
     wait_random_exponential,
 )
 
-openai.api_key = "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"
+openai.api_key = "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"
 content = [{'role': 'system', 'content': '你是一擅长做阅读理解的助手'}]
 user_content = []
 

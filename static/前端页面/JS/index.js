@@ -22,7 +22,7 @@ function sendMessage() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                "q": "message"
+                "q": message
             })
         })
             .then(response => response.json())
