@@ -4,6 +4,7 @@
 # @File    : run.py
 # @Software: PyCharm
 import uvicorn
+
 import util
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -34,16 +35,12 @@ def chatgpt(item:Item):
 
 @app.get("/chat")
 def new_chat():
-    util.content = [{'role': 'system', 'content': '你是一擅长做阅读理解的助手'}]
+    util.content = [{'role': 'system', 'content': '你是一擅长做阅读理解的助手,如果无法回答可以自由发挥'}]
     util.user_content = []
     return "ok"
 ##
+
 if __name__ == "__main__":
     while True:
         x = input("q:")
         util.review_qusetion(x)
-
-
-
-
-

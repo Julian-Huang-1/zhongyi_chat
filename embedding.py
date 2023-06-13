@@ -8,11 +8,12 @@ import openai
 
 # Provide OpenAI API key and choose one of the available models:
 # https://beta.openai.com/docs/models/overview
-openai.api_key = "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"
+openai.api_key = "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"
 embedding_model = "text-embedding-ada-002"
+c_name = "xuezhe_collection"
+data_file= "xuezhewang.txt"
 
-with open("test.txt","r",encoding='utf-8')as f:
-    f.readline()
+with open(data_file,"r",encoding='utf-8')as f:
     data =[i for i in f]
 
 vectors=[]
@@ -24,18 +25,17 @@ for s in data:
     vectors.append(response["data"][0]["embedding"])
 
 from qdrant_client import QdrantClient
-client = QdrantClient(host="localhost", port=6333)
-# client = QdrantClient(":memory:")
-# client = QdrantClient(path="path/to/db")  # Persists changes to disk
+client = QdrantClient(":memory:")
+client = QdrantClient(path="path/to/db")  # Persists changes to disk
 from qdrant_client.models import Distance, VectorParams
 client.recreate_collection(
-    collection_name="zhongyi_collection",
+    collection_name=c_name,
     vectors_config=VectorParams(size=1536, distance=Distance.COSINE),
 )
 
 from qdrant_client.models import PointStruct
 client.upsert(
-    collection_name="zhongyi_collection",
+    collection_name=c_name,
     points=[
         PointStruct(
             id=idx,
